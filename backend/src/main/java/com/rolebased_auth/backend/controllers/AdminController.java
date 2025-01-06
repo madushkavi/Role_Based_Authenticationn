@@ -5,6 +5,7 @@ import com.rolebased_auth.backend.entity.User;
 import com.rolebased_auth.backend.repositories.BookingRepository;
 import com.rolebased_auth.backend.repositories.CompanyRepository;
 import com.rolebased_auth.backend.repositories.UserRepository;
+import com.rolebased_auth.backend.services.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,7 +21,7 @@ public class AdminController {
     @Autowired
     private CompanyRepository companyRepository;
     @Autowired
-    private BookingRepository bookingRepository;
+    private BookingService bookingService;
 
     @GetMapping("/users")
 
@@ -33,6 +34,6 @@ public class AdminController {
     }
     @GetMapping("/bookings")
     public List<Booking> getAllBookings() {
-        return bookingRepository.findAll();
+        return bookingService.getAllBookings();
     }
 }

@@ -1,5 +1,6 @@
 package com.rolebased_auth.backend.entity;
 import lombok.Data;
+import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 

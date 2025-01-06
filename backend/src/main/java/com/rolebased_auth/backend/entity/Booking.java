@@ -35,6 +35,15 @@ public class Booking {
     public void setClientId(String clientId) {
         this.clientId = clientId;
     }
+
+    public OffsetDateTime getBookingDate() {
+        return bookingDate;
+    }
+
+    public void setBookingDate(OffsetDateTime bookingDate) {
+        this.bookingDate = bookingDate;
+    }
+
     public String getStatus() {
         return status;
     }
