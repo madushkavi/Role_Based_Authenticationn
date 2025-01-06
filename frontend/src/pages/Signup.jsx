@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function Signup() {
   const [userName, setUserName] = useState('');
@@ -21,7 +21,7 @@ const navigate=useNavigate();
       const response = await axios.post('http://localhost:8080/api/auth/register', userData);
         if(response){
             alert("Success Register");
-            navigate('/login');
+            navigate('/');
         }
 
     } catch (error) {
@@ -55,7 +55,7 @@ const navigate=useNavigate();
           />
         </div>
         <div className="mb-3">
-          <label className="form-label">Role (ADMIN, CLIENT, PARTNER)</label>
+          <label className="form-label">Role (Partner,Client)</label>
           <input
             type="text"
             className="form-control"
@@ -64,8 +64,23 @@ const navigate=useNavigate();
             required
           />
         </div>
-        <button type="submit" className="btn btn-primary">Register</button>
+        <button type="submit" className="btn " style={{backgroundColor:'#035c59',color:'white'}}>Register</button>
       </form>
+      <div>
+        Already have an account?{" "}
+        <span>
+          <Link
+            to="/"
+            style={{
+              textDecoration: "none",
+              color: "#035c59",
+              fontWeight: "bold",
+            }}
+          >
+            Login
+          </Link>
+        </span>
+      </div>
     </div>
   );
 }

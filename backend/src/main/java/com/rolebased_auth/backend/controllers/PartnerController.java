@@ -33,8 +33,15 @@ public class PartnerController {
 
     @PostMapping("/services")
     public ResponseEntity<?> addService(@RequestBody ComService comService, Principal principal) {
+        System.out.println("Received service name: " + comService.getServiceName());
+
         Company company = companyRepository.findByPartnerName(principal.getName());
+        if (company == null) {
+            return ResponseEntity.badRequest().body("Company not found");
+        }
         comService.setCompanyId(company.getCompanyId());
+        System.out.println("Set company ID to: " + company.getCompanyId());
+
         comServiceService.addService(comService);
         return ResponseEntity.ok("Service added successfully");
     }

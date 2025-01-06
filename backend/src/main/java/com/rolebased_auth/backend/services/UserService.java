@@ -18,6 +18,7 @@ public class UserService {
         user.setPassword(hashedPassword);
         userRepository.save(user);
     }
+
     public Optional<User> findByUsername(String userName) {
         return userRepository.findByUserName(userName);
     }

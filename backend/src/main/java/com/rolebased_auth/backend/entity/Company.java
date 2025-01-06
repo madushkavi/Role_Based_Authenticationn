@@ -17,7 +17,34 @@ public class Company {
         this.partnerName=partnerName;
     }
 
+    public String getPartnerName() {
+        return partnerName;
+    }
+
     public String getCompanyId() {
         return id ;
+    }
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getContactInfo() {
+        return contactInfo;
+    }
+
+    public void setContactInfo(String contactInfo) {
+        this.contactInfo = contactInfo;
     }
 }

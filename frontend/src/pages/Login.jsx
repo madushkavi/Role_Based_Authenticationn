@@ -1,39 +1,41 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
 
 function Login() {
-  const [userName, setUserName] = useState('');
-  const [password, setPassword] = useState('');
-  const [message, setMessage] = useState('');
+  const [userName, setUserName] = useState("");
+  const [password, setPassword] = useState("");
+  const [message, setMessage] = useState("");
 
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     const loginData = {
       userName,
-      password
+      password,
     };
 
     try {
-      const response = await axios.post('http://localhost:8080/api/auth/login', loginData);
-      const userRole=response.data.toUpperCase();
-      
+      const response = await axios.post(
+        "http://localhost:8080/api/auth/login",
+        loginData
+      );
+      const userRole = response.data.toUpperCase();
+
       console.log(userRole);
-      if (userRole === 'ADMIN') {
-        navigate('/admin');
-      } else if (userRole === 'PARTNER') {
-        navigate('/partner');
-      } else if (userRole === 'CLIENT') {
-        navigate('/client');
+      if (userRole === "ADMIN") {
+        navigate("/admin");
+      } else if (userRole === "PARTNER") {
+        navigate("/partner");
+      } else if (userRole === "CLIENT") {
+        navigate("/client");
       }
     } catch (error) {
-        console.log("wrong");
-      setMessage('Invalid credentials');
+      console.log("wrong");
+      setMessage("Invalid credentials");
     }
-    
   };
 
   return (
@@ -60,9 +62,30 @@ function Login() {
             required
           />
         </div>
-        <button type="submit" className="btn btn-primary">Login</button>
+        <button
+          type="submit"
+          className="btn "
+          style={{ backgroundColor: "#035c59", color: "white" }}
+        >
+          Login
+        </button>
       </form>
       {message && <div className="alert alert-info mt-3">{message}</div>}
+      <div>
+        Don't you have an account?{" "}
+        <span>
+          <Link
+            to="/signup"
+            style={{
+              textDecoration: "none",
+              color: "#035c59",
+              fontWeight: "bold",
+            }}
+          >
+            Register
+          </Link>
+        </span>
+      </div>
     </div>
   );
 }
