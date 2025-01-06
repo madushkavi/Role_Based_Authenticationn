@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 function Signup() {
   const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
   const [role, setRole] = useState('');
-  const [message, setMessage] = useState('');
-
+  
+const navigate=useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
     
@@ -18,9 +19,14 @@ function Signup() {
 
     try {
       const response = await axios.post('http://localhost:8080/api/auth/register', userData);
-      setMessage(response.data); 
+        if(response){
+            alert("Success Register");
+            navigate('/login');
+        }
+
     } catch (error) {
-      setMessage('Error during registration');
+        alert(error);
+        navigate('/signup');
     }
   };
 
@@ -54,13 +60,12 @@ function Signup() {
             type="text"
             className="form-control"
             value={role}
-            onChange={(e) => setRole(e.target.value)}
+            onChange={(e) => setRole(e.target.value.toUpperCase())}
             required
           />
         </div>
         <button type="submit" className="btn btn-primary">Register</button>
       </form>
-      {message && <div className="alert alert-info mt-3">{message}</div>}
     </div>
   );
 }

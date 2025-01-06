@@ -5,7 +5,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
 @Document(collection = "services")
-public class Service {
+public class ComService {
     @Id
     private String id;
     private String serviceName;
@@ -13,7 +13,7 @@ public class Service {
     private Double price;
     private String companyId;
 
-    public void setCompanyId(Object companyId) {
-        this.companyId= companyId.toString();
+    public void setCompanyId(String companyId) {
+        this.companyId= companyId;
     }
 }

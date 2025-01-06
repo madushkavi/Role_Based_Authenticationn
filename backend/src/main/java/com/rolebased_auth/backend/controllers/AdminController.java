@@ -19,17 +19,15 @@ public class AdminController {
     private BookingRepository bookingRepository;
 
     @GetMapping("/users")
-    @PreAuthorize("hasRole('SuperAdmin')")
+
     public List<User> getAllUsers(){
         return userRepository.findAll();
     }
     @GetMapping("/companies")
-    @PreAuthorize("hasRole('SuperAdmin')")
     public List<Company> getAllCompanies() {
         return companyRepository.findAll();
     }
     @GetMapping("/bookings")
-    @PreAuthorize("hasRole('SuperAdmin')")
     public List<Booking> getAllBookings() {
         return bookingRepository.findAll();
     }

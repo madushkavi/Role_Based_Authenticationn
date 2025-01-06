@@ -19,8 +19,9 @@ function Login() {
 
     try {
       const response = await axios.post('http://localhost:8080/api/auth/login', loginData);
-      const userRole=response.data;
+      const userRole=response.data.toUpperCase();
       
+      console.log(userRole);
       if (userRole === 'ADMIN') {
         navigate('/admin');
       } else if (userRole === 'PARTNER') {

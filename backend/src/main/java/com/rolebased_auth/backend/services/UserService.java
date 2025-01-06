@@ -19,7 +19,7 @@ public class UserService {
         userRepository.save(user);
     }
     public Optional<User> findByUsername(String userName) {
-        return userRepository.findByUserName(userName);  // Call the updated method in repository
+        return userRepository.findByUserName(userName);
     }
 }
 

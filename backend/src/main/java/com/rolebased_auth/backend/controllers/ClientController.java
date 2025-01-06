@@ -1,11 +1,10 @@
 package com.rolebased_auth.backend.controllers;
 import com.rolebased_auth.backend.entity.Booking;
-import com.rolebased_auth.backend.entity.Service;
+import com.rolebased_auth.backend.entity.ComService;
 import com.rolebased_auth.backend.repositories.BookingRepository;
-import com.rolebased_auth.backend.repositories.ServiceRepository;
+import com.rolebased_auth.backend.repositories.ComServiceRepository;
 import com.rolebased_auth.backend.repositories.UserRepository;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import java.security.Principal;
 import java.util.List;
@@ -16,9 +15,9 @@ import java.util.List;
 public class ClientController {
     private BookingRepository bookingRepository;
     private UserRepository userRepository;
-    private ServiceRepository serviceRepository;
+    private ComServiceRepository comServiceRepository;
 
-    @PreAuthorize("hasRole('CLIENT')")
+
     @PostMapping("/book-service")
     public ResponseEntity<?> createBooking(@RequestBody Booking booking, Principal principle){
         booking.setClientId(principle.getName());
@@ -26,10 +25,9 @@ public class ClientController {
         bookingRepository.save(booking);
         return ResponseEntity.ok("Service booked successfully");
     }
-    @PreAuthorize("hasRole('CLIENT')")
     @GetMapping("/services")
-    public List<Service> getAllServices(){
-        return serviceRepository.findAll();
+    public List<ComService> getAllServices(){
+        return comServiceRepository.findAll();
     }
     @GetMapping("/my-bookings")
     public List<Booking> getMyBookings(Principal principal) {
