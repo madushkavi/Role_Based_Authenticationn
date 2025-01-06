@@ -1,18 +1,18 @@
-#Role-Based Access Booking System
+# Role-Based Access Booking System
 This project is a full-stack application that demonstrates a role-based access control system, implemented with a Spring Boot backend, ReactJS frontend, and a MongoDB database.
 
-##Features
--Role-based user management with different access levels (Admin, Client, Partner)
--Authentication and authorization using JWT (JSON Web Tokens)
--MongoDB as the database for storing user data, bookings, and services.
--RESTful API for interacting with the backend.
--Frontend built using ReactJS
+## Features
+- Role-based user management with different access levels (Admin, Client, Partner)
+- Authentication and authorization using JWT (JSON Web Tokens)
+- MongoDB as the database for storing user data, bookings, and services.
+- RESTful API for interacting with the backend.
+- Frontend built using ReactJS
 
-##Tech Stack
--Backend: Spring Boot (Java)
--Frontend: ReactJS
--Database: MongoDB (Database name: roleBasedSystem)
--Authentication: JWT (JSON Web Tokens)
+## Tech Stack
+- Backend: Spring Boot (Java)
+- Frontend: ReactJS
+- Database: MongoDB (Database name: roleBasedSystem)
+- Authentication: JWT (JSON Web Tokens)
 
 ## Architecture
 
