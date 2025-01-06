@@ -1,5 +1,5 @@
 # Role-Based Access Booking System
-This project is a full-stack application that demonstrates a role-based access control system, implemented with a Spring Boot backend, ReactJS frontend, and a MongoDB database.
+This project is a full-stack application that demonstrates a role-based access control system. It is implemented with a Spring Boot backend, ReactJS frontend, and MongoDB database.
 
 ## Features
 - Role-based user management with different access levels (Admin, Client, Partner)
@@ -24,4 +24,21 @@ The system follows a **Layered Architecture** design pattern, where the applicat
 - **Repositories**: Handle interactions with the database (MongoDB) using Spring Data.
 - **Entities**: Represent the database tables and structure.
 
+## Set up project
+1. Clone repository
+   ```bash
+   git clone https://github.com/madushkavi/Role_Based_Authenticationn.git
+   
+   ```
+2. Set up backend
+   ```bash
+   cd backend
+   mvn clean install
 
+   ```
+3. Set up frontend
+   ```bash
+   cd frontend
+   npm install
+   npm start
+   ```
